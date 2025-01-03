@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Manual Search
+GenericName=Man Page Viewer
+Comment=Search manpages with fzf
+Icon=bookreader
+Exec=@name@
+TryExec=@name@
+Terminal=true
+Categories=Utility;ConsoleOnly;
