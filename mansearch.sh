@@ -39,7 +39,7 @@ selection=$(find $spaths ! -name '*.dist' -type f 2>/dev/null | \
     --bind alt-k:preview-up \
     --bind alt-j:preview-down \
     --bind='pgdn:half-page-down,pgup:half-page-up' \
-    --preview "fzfman {1}" \
+    --preview "@placeholder@/fzfman {1}" \
 )
 
 if [ -n "$selection" ]; then
