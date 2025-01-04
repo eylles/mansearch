@@ -8,7 +8,7 @@ Man Page search with fzf
 
 ```
 git clone https://github.com/eylles/mansearch
-cd copypasta
+cd mansearch
 make install
 ```
 
