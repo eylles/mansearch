@@ -2,8 +2,11 @@
 
 myname="${0##*/}"
 
+MANPATH=""
 spaths=""
 mpaths=$(manpath | awk '{gsub(/:/," "); print}')
+use_man_path="$(manpath)"
+export MANPATH="$use_man_path"
 
 for mp in $mpaths; do
     spaths="${spaths}${mp}/man1 "
