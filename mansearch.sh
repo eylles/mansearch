@@ -23,6 +23,24 @@ done
 #     printf '\t%s\n' "$p"
 # done
 
+#config file
+CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/$myname"
+CONFIG="$CONFIG_DIR/configrc"
+if [ -f "$CONFIG" ]; then
+    # load config
+    . "$CONFIG"
+else
+    notify-send "${myname}: Error!" "${CONFIG} doesn't exist, example config will be copied"
+    if [ ! -d "$CONFIG_DIR" ]; then
+        mkdir -p "$CONFIG_DIR"
+    fi
+    cp @examples-placeholder@/configrc "$CONFIG_DIR/"
+    # load config
+    . "$CONFIG"
+fi
+
+export FZF_DEFAULT_OPTS="${FZF_COLORS}"
+
 selection=$(find $spaths ! -name '*.dist' -type f 2>/dev/null | \
     awk '
         {
@@ -33,8 +51,10 @@ selection=$(find $spaths ! -name '*.dist' -type f 2>/dev/null | \
         ' | \
     fzf  \
     --cycle \
+    --layout=reverse  \
     --prompt='filter: ' \
     --height 100% \
+    --header 'Man Search' \
     --preview-window 70% \
     --bind alt-k:preview-up \
     --bind alt-j:preview-down \
