@@ -5,7 +5,9 @@ BIN_LOC = $(DESTDIR)${PREFIX}/bin
 LIB_LOC = $(DESTDIR)${PREFIX}/lib/$(NAME)
 DESK_LOC = $(DESTDIR)$(PREFIX)/share/applications
 EGPREFIX = $(DESTDIR)$(PREFIX)/share/doc/$(NAME)/examples
-.PHONY: install uninstall install-all
+.PHONY: install uninstall install-all all
+
+all: $(NAME) $(NAME).desktop
 
 fzfman:
 	cp fzfman.sh fzfman
