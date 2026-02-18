@@ -48,3 +48,5 @@ uninstall:
 	rm -vf $(EGPREFIX)/configrc
 	rm -rf $(EGPREFIX)
 
+clean:
+	rm -vf $(NAME) $(NAME).desktop fzfman configrc
