@@ -59,8 +59,12 @@ selection=$(find $spaths ! -name '*.dist' -type f 2>/dev/null | \
     --height 100% \
     --header 'Man Search' \
     --preview-window 70% \
-    --bind alt-k:preview-up \
-    --bind alt-j:preview-down \
+    --bind='ctrl-k:up,ctrl-j:down' \
+    --bind='alt-k:preview-up,alt-j:preview-down' \
+    --bind 'ctrl-d:half-page-down' \
+    --bind 'ctrl-u:half-page-up' \
+    --bind 'alt-d:preview-half-page-down' \
+    --bind 'alt-u:preview-half-page-up' \
     --bind='pgdn:half-page-down,pgup:half-page-up' \
     --preview "@placeholder@/fzfman {1}" \
 )
