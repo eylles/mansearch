@@ -31,14 +31,13 @@ install: $(NAME)
 	mkdir -p $(BIN_LOC)
 	mkdir -p $(LIB_LOC)
 	mkdir -p $(EGPREFIX)
-	cp -v $(NAME) $(BIN_LOC)/
-	cp -v configrc $(EGPREFIX)/
-	cp -v fzfman  $(LIB_LOC)/
+	cp -v build/$(NAME) $(BIN_LOC)/
+	cp -v build/configrc $(EGPREFIX)/
+	cp -v build/fzfman  $(LIB_LOC)/
 
 install-desktop: $(NAME).desktop
 	mkdir -p $(DESK_LOC)
-	cp $(NAME).desktop $(DESK_LOC)/
-	rm $(NAME).desktop
+	cp build/$(NAME).desktop $(DESK_LOC)/
 
 install-all: install install-desktop
 
