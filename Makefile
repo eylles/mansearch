@@ -9,22 +9,25 @@ EGPREFIX = $(DESTDIR)$(PREFIX)/share/doc/$(NAME)/examples
 
 all: $(NAME) $(NAME).desktop
 
-fzfman:
-	cp fzfman.sh fzfman
+build:
+	mkdir build
 
-configrc:
-	cp configrc.template configrc
+fzfman: build
+	cp fzfman.sh build/$@
 
-$(NAME): fzfman configrc
+configrc: build
+	cp configrc.template build/$@
+
+$(NAME): fzfman configrc build
 	sed "s|@placeholder@|$(LIB_LOC)|; s|@examples-placeholder@|$(EGPREFIX)|" \
-		mansearch.sh > $(NAME)
+		mansearch.sh > build/$@
+	chmod 755 build/$@
 
-$(NAME).desktop:
+$(NAME).desktop: build
 	sed "s|@name@|$(NAME)|" \
-		mansearch.desktop.in > $(NAME).desktop
+		mansearch.desktop.in > build/$@
 
 install: $(NAME)
-	chmod 755 $(NAME)
 	mkdir -p $(BIN_LOC)
 	mkdir -p $(LIB_LOC)
 	mkdir -p $(EGPREFIX)
@@ -48,4 +51,4 @@ uninstall:
 	rm -rf $(EGPREFIX)
 
 clean:
-	rm -vf $(NAME) $(NAME).desktop fzfman configrc
+	rm -vrf build
