@@ -31,9 +31,6 @@ install: $(NAME)
 	cp -v $(NAME) $(BIN_LOC)/
 	cp -v configrc $(EGPREFIX)/
 	cp -v fzfman  $(LIB_LOC)/
-	rm $(NAME)
-	rm fzfman
-	rm configrc
 
 install-desktop: $(NAME).desktop
 	mkdir -p $(DESK_LOC)
