@@ -38,6 +38,9 @@ FZF_COLORS="--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9,fg+:#f8f8f2,bg+:#44475a,hl+
 --color=preview-bg:#44475a \
 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6,marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
 
+# man binary
+MAN_BIN=/usr/bin/man
+
 #config file
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/$myname"
 CONFIG="$CONFIG_DIR/configrc"
@@ -55,6 +58,7 @@ else
 fi
 
 export FZF_DEFAULT_OPTS="${FZF_COLORS}"
+export MAN_BIN
 
 selection=$(find $spaths ! -name '*.dist' -type f 2>/dev/null | \
     awk '
@@ -82,7 +86,7 @@ selection=$(find $spaths ! -name '*.dist' -type f 2>/dev/null | \
 )
 
 if [ -n "$selection" ]; then
-    man "$selection"
+    $MAN_BIN "$selection"
 else
     printf '[%s] %s:\n' "$myname" "no option chosen"
 fi
