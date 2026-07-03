@@ -26,6 +26,9 @@ done
 #     printf '\t%s\n' "$p"
 # done
 
+# configurable fzf binary
+FZF_BIN=/usr/bin/fzf
+
 #config file
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/$myname"
 CONFIG="$CONFIG_DIR/configrc"
@@ -52,7 +55,7 @@ selection=$(find $spaths ! -name '*.dist' -type f 2>/dev/null | \
           print
         }
         ' | \
-    fzf  \
+    $FZF_BIN  \
     --cycle \
     --layout=reverse  \
     --prompt='filter: ' \

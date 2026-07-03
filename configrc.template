@@ -3,6 +3,9 @@
 # this config file is loaded as a shell script, which means you can do not just shell scripting but
 # load other scripts into it.
 
+# configurable fzf binary, change the path if you use some wrapper
+FZF_BIN=/usr/bin/fzf
+
 # colorscheme for fzf, by default we ship dracula
 FZF_COLORS="--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9,fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 \
 --color=preview-bg:#44475a \
