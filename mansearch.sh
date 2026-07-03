@@ -26,8 +26,17 @@ done
 #     printf '\t%s\n' "$p"
 # done
 
+#############
+# conf vars #
+#############
+
 # configurable fzf binary
 FZF_BIN=/usr/bin/fzf
+
+# colorscheme for fzf, by default we ship dracula
+FZF_COLORS="--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9,fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 \
+--color=preview-bg:#44475a \
+--color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6,marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
 
 #config file
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/$myname"
