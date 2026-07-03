@@ -41,6 +41,9 @@ FZF_COLORS="--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9,fg+:#f8f8f2,bg+:#44475a,hl+
 # man binary
 MAN_BIN=/usr/bin/man
 
+MANOPT="--no-hyphenation --no-justification"
+MANROFFOPT=""
+
 #config file
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/$myname"
 CONFIG="$CONFIG_DIR/configrc"
@@ -59,6 +62,8 @@ fi
 
 export FZF_DEFAULT_OPTS="${FZF_COLORS}"
 export MAN_BIN
+export MANOPT
+export MANROFFOPT
 
 selection=$(find $spaths ! -name '*.dist' -type f 2>/dev/null | \
     awk '
