@@ -64,6 +64,7 @@ export FZF_DEFAULT_OPTS="${FZF_COLORS}"
 export MAN_BIN
 export MANOPT
 export MANROFFOPT
+export MANPAGER
 
 selection=$(find $spaths ! -name '*.dist' -type f 2>/dev/null | \
     awk '
