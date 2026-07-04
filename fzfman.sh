@@ -1,8 +1,11 @@
 #!/bin/sh
 
-if [ -n "$FZF_PREVIEW_COLUMNS" ]; then
-    export MANWIDTH="$FZF_PREVIEW_COLUMNS"
+if [ -z "$FZF_PREVIEW_COLUMNS" ]; then
+    FZF_PREVIEW_COLUMNS="$(tput cols)"
 fi
+
+MANWIDTH="$(( FZF_PREVIEW_COLUMNS - 1 ))"
+export MANWIDTH
 
 if [ -z "$MAN_BIN" ]; then
     MAN_BIN=/usr/bin/man
