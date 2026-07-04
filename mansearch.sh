@@ -65,6 +65,7 @@ export MAN_BIN
 export MANOPT
 export MANROFFOPT
 export MANPAGER
+export PREVIEW_PAGER
 
 selection=$(find $spaths ! -name '*.dist' -type f 2>/dev/null | \
     awk '

@@ -11,7 +11,11 @@ if [ -z "$MAN_BIN" ]; then
     MAN_BIN=/usr/bin/man
 fi
 
+if [ -z "$PREVIEW_PAGER" ]; then
+    PREVIEW_PAGER=/bin/cat
+fi
+
 export MAN_KEEP_FORMATTING=1
-export MANPAGER=/usr/bin/cat
+export MANPAGER="$PREVIEW_PAGER"
 
 exec $MAN_BIN "$@" 2>/dev/null
